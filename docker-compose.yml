@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  vue:
+    build:
+      context: ./rock-paper-scissors-frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./rock-paper-scissors-frontend:/app
+    env_file:
+      - ./rock-paper-scissors-frontend/.env
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge
